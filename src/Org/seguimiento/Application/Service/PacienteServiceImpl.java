@@ -1,7 +1,8 @@
 package Org.seguimiento.Application.Service;
 
 import Org.seguimiento.domain.Paciente;
-import Org.seguimiento.infraestructure.repository.PacienteRepositoryImpl;
+import Org.seguimiento.interfaces.PacienteRepository;
+import Org.seguimiento.interfaces.PacienteService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,8 +10,8 @@ import java.util.List;
 public class PacienteServiceImpl implements PacienteService {
         private final PacienteRepository pacienteRepository;
 
-        public PacienteServiceImpl(PacienteRepositoryImpl pacienteRepository) {
-            this.pacienteRepository = (PacienteRepository) pacienteRepository;
+        public PacienteServiceImpl(PacienteRepository pacienteRepository) {
+            this.pacienteRepository = pacienteRepository;
         }
 
         @Override
@@ -20,6 +21,7 @@ public class PacienteServiceImpl implements PacienteService {
 
         @Override
         public Paciente findById(int id) {
+
             return pacienteRepository.findById(id);
         }
 
